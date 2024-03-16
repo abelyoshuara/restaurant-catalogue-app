@@ -13,7 +13,8 @@
     "lint:check": "eslint ./src",
     "lint:fix": "eslint --fix ./src",
     "prettier:fix": "prettier . --write",
-    "prettier:check": "prettier . --check"
+    "prettier:check": "prettier . --check",
+    "ci:test": "npm run test && start-server-and-test dev http://localhost:9000 e2e"
   },
   "keywords": [],
   "author": "your_name <your.email@domain.com>",
@@ -62,6 +63,7 @@
     "idb": "^7.1.1",
     "lazysizes": "^5.3.2",
     "regenerator-runtime": "^0.13.9",
+    "start-server-and-test": "^2.0.3",
     "workbox-window": "^6.5.4"
   }
 }
