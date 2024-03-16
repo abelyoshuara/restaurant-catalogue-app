@@ -1,19 +1,19 @@
-const path = require('path')
-const { merge } = require('webpack-merge')
-const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
-const common = require('./webpack.common')
+const path = require("path");
+const { merge } = require("webpack-merge");
+const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
+const common = require("./webpack.common");
 
 module.exports = merge(common, {
-  mode: 'production',
+  mode: "production",
   optimization: {
     splitChunks: {
-      chunks: 'all',
+      chunks: "all",
       minSize: 20000,
       maxSize: 50000,
       minChunks: 1,
       maxAsyncRequests: 30,
       maxInitialRequests: 30,
-      automaticNameDelimiter: '~',
+      automaticNameDelimiter: "~",
       enforceSizeThreshold: 50000,
       cacheGroups: {
         defaultVendors: {
@@ -28,7 +28,7 @@ module.exports = merge(common, {
       },
     },
   },
-  devtool: 'source-map',
+  devtool: "source-map",
   module: {
     rules: [
       {
@@ -36,9 +36,9 @@ module.exports = merge(common, {
         exclude: /node_modules/,
         use: [
           {
-            loader: 'babel-loader',
+            loader: "babel-loader",
             options: {
-              presets: ['@babel/preset-env'],
+              presets: ["@babel/preset-env"],
             },
           },
         ],
@@ -47,8 +47,8 @@ module.exports = merge(common, {
   },
   plugins: [
     new WorkboxWebpackPlugin.InjectManifest({
-      swSrc: path.resolve(__dirname, 'src/scripts/sw.js'),
-      swDest: './sw.bundle.js',
+      swSrc: path.resolve(__dirname, "src/scripts/sw.js"),
+      swDest: "./sw.bundle.js",
     }),
   ],
-})
+});
