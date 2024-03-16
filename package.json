@@ -12,8 +12,8 @@
     "e2e": "codeceptjs run --steps",
     "lint:check": "eslint ./src",
     "lint:fix": "eslint --fix ./src",
-    "prettier:format": "prettier ./src --write",
-    "prettier:check": "prettier ./src --check"
+    "prettier:fix": "prettier . --write",
+    "prettier:check": "prettier . --check"
   },
   "keywords": [],
   "author": "your_name <your.email@domain.com>",
